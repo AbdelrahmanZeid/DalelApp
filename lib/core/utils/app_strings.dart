@@ -5,7 +5,7 @@ abstract class AppStrings {
       //!On Boarding Strings
       skip = "Skip",
       next = "Next",
-      onboardingItemTitleOne = "Explore The history with dalel i smart way",
+      onboardingItemTitleOne = "Explore The history with Dalel in a smart way",
       onboardingItemSubTitleOne = "Using our app’s history libraries you can find many historical periods",
       onboardingItemTitleTwo = "From every place on earth",
       onboardingItemSubTitleTwo= "A big variety of ancient places from all over the world",

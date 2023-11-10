@@ -1,4 +1,4 @@
-import 'package:dalel/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:dalel/core/utils/app_functions.dart';
 import 'package:dalel/features/splash/presentation/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -12,19 +12,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(
-        const Duration(
-          seconds: 2,
-        ), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return OnBoardingView();
-          },
-        ),
-      );
-    });
+    delayFunction(context);
     super.initState();
   }
 
@@ -34,4 +22,15 @@ class _SplashViewState extends State<SplashView> {
       body: SplashViewBody(),
     );
   }
+}
+
+void delayFunction(context) {
+  Future.delayed(
+    const Duration(
+      seconds: 2,
+    ),
+    () {
+      navigationWithReplacment(context, '/onBoarding');
+    },
+  );
 }

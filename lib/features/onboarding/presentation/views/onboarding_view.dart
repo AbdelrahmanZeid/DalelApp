@@ -1,4 +1,4 @@
- import 'package:dalel/features/onboarding/presentation/widgets/onboarding_view_body.dart';
+import 'package:dalel/features/onboarding/presentation/widgets/onboarding_view_body.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatelessWidget {
@@ -6,8 +6,10 @@ class OnBoardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: OnBoardingViewBody(),
+    return  SafeArea(
+      child:  Scaffold(
+        body: OnBoardingViewBody(),
+      ),
     );
   }
 }

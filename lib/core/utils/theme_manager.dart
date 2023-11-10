@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 class ThemeManager {
   static ThemeData getTheme() => ThemeData(
         scaffoldBackgroundColor: AppColor.scaffoldBackGroundColor,
-        fontFamily: 'Pacifico',
+        fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: AppColor.scaffoldBackGroundColor,
