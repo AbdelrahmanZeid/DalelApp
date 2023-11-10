@@ -5,6 +5,12 @@ abstract class AppStrings {
       //!On Boarding Strings
       skip = "Skip",
       next = "Next",
+      onboardingItemTitleOne = "Explore The history with dalel i smart way",
+      onboardingItemSubTitleOne = "Using our app’s history libraries you can find many historical periods",
+      onboardingItemTitleTwo = "From every place on earth",
+      onboardingItemSubTitleTwo= "A big variety of ancient places from all over the world",
+      onboardingItemTitleThree = "Using modern AI technology for better user experience",
+      onboardingItemSubTitleThree = "AI provide recommendations and helps you to continue the search journey",
       createAccount = "Create Account",
       loginNow = "Login Now",
       //!Auth Strings
