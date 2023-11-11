@@ -1,3 +1,4 @@
+import 'package:dalel/features/auth/presentation/views/sign_in_view.dart';
 import 'package:dalel/features/auth/presentation/views/sign_up_view.dart';
 import 'package:dalel/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:dalel/features/splash/presentation/views/splash_view.dart';
@@ -21,6 +22,12 @@ final GoRouter router = GoRouter(
         path: '/sign_up',
         builder: (context, GoRouterState state) {
           return const SignUpView();
+        },
+      ),
+      GoRoute(
+        path: '/sign_in',
+        builder: (context, GoRouterState state) {
+          return const SignInView();
         },
       ),
     ],

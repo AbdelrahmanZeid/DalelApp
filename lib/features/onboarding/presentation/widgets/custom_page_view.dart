@@ -1,9 +1,7 @@
-import 'package:dalel/core/utils/app_functions.dart';
-import 'package:dalel/core/utils/app_strings.dart';
-import 'package:dalel/core/utils/app_text_style.dart';
-import 'package:dalel/core/widgets/custom_button.dart';
-import 'package:dalel/features/onboarding/data/onboarding_model.dart';
+  import 'package:dalel/core/utils/app_text_style.dart';
+ import 'package:dalel/features/onboarding/data/onboarding_model.dart';
 import 'package:dalel/features/onboarding/presentation/widgets/custom_smooth_page_indicator.dart';
+import 'package:dalel/features/onboarding/presentation/widgets/get_buttons.dart';
 import 'package:flutter/material.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -77,37 +75,10 @@ class _CustomPageViewState extends State<CustomPageView> {
                 const SizedBox(
                   height: 88,
                 ),
-                currentIndex == onBoardingListItem.length - 1
-                    ? Column(
-                        children: [
-                          CustomButton(
-                            text: AppStrings.createAccount,
-                            onPressed: () {
-                              navigationWithReplacment(context, '/sign_up');
-                            },
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            AppStrings.loginNow,
-                            style:
-                                AppTextStyle.onBoardingSubTitleStyle().copyWith(
-                              fontWeight: FontWeight.w400,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                        ],
-                      )
-                    : CustomButton(
-                        text: AppStrings.next,
-                        onPressed: () {
-                          _pageController.nextPage(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.bounceInOut,
-                          );
-                        },
-                      ),
+                GetButtons(
+                  currentIndex: currentIndex,
+                  pageController: _pageController,
+                ),
               ],
             ),
           );
