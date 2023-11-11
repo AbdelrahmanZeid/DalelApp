@@ -17,6 +17,9 @@ class CustomTextFormField extends StatelessWidget {
             color: AppColor.deepGrey,
           ),
         ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5,),
+        ),
       ),
     );
   }

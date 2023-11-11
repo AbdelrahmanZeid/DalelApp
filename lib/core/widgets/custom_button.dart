@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
             10,
           ),
         ),
-        backgroundColor:color?? AppColor.primaryColor,
+        backgroundColor: AppColor.black,
       ),
       onPressed: onPressed,
       child: Text(
