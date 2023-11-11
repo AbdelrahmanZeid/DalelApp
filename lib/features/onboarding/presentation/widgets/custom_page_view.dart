@@ -78,11 +78,26 @@ class _CustomPageViewState extends State<CustomPageView> {
                   height: 88,
                 ),
                 currentIndex == onBoardingListItem.length - 1
-                    ? CustomButton(
-                        text: AppStrings.createAccount,
-                        onPressed: () {
-                          navigation(context, '/sign_up');
-                        },
+                    ? Column(
+                        children: [
+                          CustomButton(
+                            text: AppStrings.createAccount,
+                            onPressed: () {
+                              navigationWithReplacment(context, '/sign_up');
+                            },
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            AppStrings.loginNow,
+                            style:
+                                AppTextStyle.onBoardingSubTitleStyle().copyWith(
+                              fontWeight: FontWeight.w400,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ],
                       )
                     : CustomButton(
                         text: AppStrings.next,

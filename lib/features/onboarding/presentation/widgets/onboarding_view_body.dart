@@ -17,7 +17,7 @@ class OnBoardingViewBody extends StatelessWidget {
             height: 40,
           ),
           GestureDetector(
-            onTap: () => navigation(context, '/sign_up'),
+            onTap: () => navigationWithReplacment(context, '/sign_up'),
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(
