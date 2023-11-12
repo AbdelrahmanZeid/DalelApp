@@ -1,7 +1,7 @@
-
-
 import 'package:dalel/core/utils/app_strings.dart';
+import 'package:dalel/features/auth/view_model/cubits/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TermsAndCondition extends StatefulWidget {
   const TermsAndCondition({super.key});
@@ -11,19 +11,19 @@ class TermsAndCondition extends StatefulWidget {
 }
 
 class _TermsAndConditionState extends State<TermsAndCondition> {
-  @override
-  bool value = false;
+
+  bool? value=false;
   Widget build(BuildContext context) {
+    final auth = BlocProvider.of<AuthCubit>(context);
     return Row(
       children: [
         Checkbox(
           value: value,
           onChanged: (val) {
-            setState(
-              () {
-                value = val!;
-              },
-            );
+          setState(() {
+              value=val;
+           auth.switchTermAndCondition(newValue: val!);
+          });
           },
         ),
         const Text(

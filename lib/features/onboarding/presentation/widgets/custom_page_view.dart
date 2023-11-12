@@ -1,5 +1,5 @@
-  import 'package:dalel/core/utils/app_text_style.dart';
- import 'package:dalel/features/onboarding/data/onboarding_model.dart';
+import 'package:dalel/core/utils/app_text_style.dart';
+import 'package:dalel/features/onboarding/data/onboarding_model.dart';
 import 'package:dalel/features/onboarding/presentation/widgets/custom_smooth_page_indicator.dart';
 import 'package:dalel/features/onboarding/presentation/widgets/get_buttons.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +15,11 @@ class _CustomPageViewState extends State<CustomPageView> {
   int currentIndex = 0;
 
   final PageController _pageController = PageController(initialPage: 0);
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
