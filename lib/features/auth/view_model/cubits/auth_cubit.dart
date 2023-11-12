@@ -10,7 +10,8 @@ class AuthCubit extends Cubit<AuthStates> {
         );
 
   static AuthCubit get(context) => BlocProvider.of(context);
-  final formKey = GlobalKey<FormState>();
+  final signUpFormKey = GlobalKey<FormState>();
+  final signInFormKey = GlobalKey<FormState>();
 
   String? firstName;
   String? lastName;

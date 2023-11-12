@@ -10,6 +10,15 @@ class SignUpFailuerState extends AuthStates {
     required this.errMessage,
   });
 }
+class SignInLoadigState extends AuthStates{}
+class SignInSuccessState extends AuthStates{}
+class SignInFailuerState extends AuthStates {
+
+   final String errMessage;
+  SignInFailuerState({
+    required this.errMessage,
+  });
+}
 
 class TermAndConditionSuccessState extends AuthStates{}
 class ChangeTextSuccessState extends AuthStates{}

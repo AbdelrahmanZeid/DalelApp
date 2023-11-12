@@ -8,9 +8,9 @@ class ThemeManager {
         fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarColor: AppColor.scaffoldBackGroundColor,
+            // statusBarBrightness: Brightness.light,
+            // statusBarIconBrightness: Brightness.dark,
+            statusBarColor: AppColor.primaryColor,
           ),
         ),
       );

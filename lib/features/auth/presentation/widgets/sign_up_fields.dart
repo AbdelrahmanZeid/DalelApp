@@ -10,21 +10,21 @@ import 'package:dalel/features/auth/view_model/cubits/auth_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AuthFields extends StatefulWidget {
-  const AuthFields({super.key});
+class SignUpFields extends StatefulWidget {
+  const SignUpFields({super.key});
 
   @override
-  State<AuthFields> createState() => _AuthFieldsState();
+  State<SignUpFields> createState() => _SignUpFieldsState();
 }
 
-class _AuthFieldsState extends State<AuthFields> {
+class _SignUpFieldsState extends State<SignUpFields> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthStates>(
       builder: (BuildContext context, state) {
         AuthCubit auth = AuthCubit.get(context);
         return Form(
-          key: auth.formKey,
+          key: auth.signUpFormKey,
           child: Expanded(
             child: ListView(
               physics: const BouncingScrollPhysics(),
@@ -95,7 +95,7 @@ class _AuthFieldsState extends State<AuthFields> {
                             text: AppStrings.signUp,
                             color: AppColor.primaryColor,
                             onPressed: () {
-                              if (auth.formKey.currentState!.validate()) {
+                              if (auth.signUpFormKey.currentState!.validate()) {
                                 auth.signUpWithEmailAndPassword();
                               }
                             },
