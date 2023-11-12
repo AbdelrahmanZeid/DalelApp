@@ -4,8 +4,8 @@ import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/core/widgets/custom_text_form_field.dart';
-import 'package:dalel/features/auth/presentation/widgets/already_have_account.dart';
 import 'package:dalel/features/auth/presentation/widgets/dont_have_account.dart';
+import 'package:dalel/features/auth/presentation/widgets/forget_password_widget.dart';
 import 'package:dalel/features/auth/presentation/widgets/welcome_banner.dart';
 import 'package:dalel/features/auth/view_model/cubits/auth_cubit.dart';
 import 'package:dalel/features/auth/view_model/cubits/auth_states.dart';
@@ -106,7 +106,7 @@ class _SignInFieldsState extends State<SignInFields> {
                 const SizedBox(
                   height: 8,
                 ),
-                const ForgetPassword(),
+                const ForgetPasswordWidget(),
                 const SizedBox(
                   height: 102,
                 ),
@@ -147,20 +147,6 @@ class _SignInFieldsState extends State<SignInFields> {
           // );
         }
       },
-    );
-  }
-}
-
-class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Text(
-        AppStrings.forgotPassword,
-      ),
     );
   }
 }
