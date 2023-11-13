@@ -30,13 +30,12 @@ class _SignUpFieldsState extends State<SignUpFields> {
               physics: const BouncingScrollPhysics(),
               children: [
                 CustomTextFormField(
-                  
                   lable: AppStrings.fristName,
                   onChanged: (firstName) {
                     auth.firstName = firstName;
                   },
-                  textInputType: TextInputType.name, obscureText: false,
-                  
+                  textInputType: TextInputType.name,
+                  obscureText: false,
                 ),
                 const SizedBox(
                   height: 28,
@@ -46,7 +45,8 @@ class _SignUpFieldsState extends State<SignUpFields> {
                     auth.lastName = lastName;
                   },
                   lable: AppStrings.lastName,
-                  textInputType: TextInputType.name, obscureText: false,
+                  textInputType: TextInputType.name,
+                  obscureText: false,
                 ),
                 const SizedBox(
                   height: 28,
@@ -56,7 +56,8 @@ class _SignUpFieldsState extends State<SignUpFields> {
                   onChanged: (emailAddress) {
                     auth.emailAddress = emailAddress;
                   },
-                  textInputType: TextInputType.emailAddress, obscureText: false,
+                  textInputType: TextInputType.emailAddress,
+                  obscureText: false,
                 ),
                 const SizedBox(
                   height: 28,
@@ -87,9 +88,11 @@ class _SignUpFieldsState extends State<SignUpFields> {
                   height: 50,
                 ),
                 state is SignUpLoadigState
-                    ? const CircularProgressIndicator(
-                        color: AppColor.primaryColor,
-                      )
+                    ?const Center(
+                      child:  CircularProgressIndicator(
+                          color: AppColor.primaryColor,
+                        ),
+                    )
                     : auth.isActive == true
                         ? CustomButton(
                             text: AppStrings.signUp,
@@ -119,14 +122,13 @@ class _SignUpFieldsState extends State<SignUpFields> {
       },
       listener: (BuildContext context, AuthStates state) {
         if (state is SignUpSuccessState) {
-          // showToast(
-          //   message: 'Account Created Successfuly',
-          // );
+          showSBar(message: 'Account created successfuly', context: context);
           navigationWithReplacment(context, "/home");
         } else if (state is SignUpFailuerState) {
-          // showToast(
-          //   message: state.errMessage,
-          // );
+          showSBar(
+            message: state.toString(),
+            context: context,
+          );
         }
       },
     );

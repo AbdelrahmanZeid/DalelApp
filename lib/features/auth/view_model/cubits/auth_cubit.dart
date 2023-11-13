@@ -24,8 +24,8 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(
         SignUpLoadigState(),
       );
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress!,
         password: password!,
       );
@@ -64,5 +64,37 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(
       ChangeTextSuccessState(),
     );
+  }
+
+  signInWithEmailAndPasswod() async {
+    try {
+      emit(
+        SignInLoadigState(),
+      );
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailAddress!,
+        password: password!,
+      );
+      emit(
+        SignInSuccessState(),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(
+          SignInFailuerState(errMessage: 'No user found for that email.'),
+        );
+      } else if (e.code == 'wrong-password') {
+        emit(
+          SignInFailuerState(
+              errMessage: 'Wrong password provided for that user.'),
+        );
+      }
+    } catch (error) {
+      emit(
+        SignInFailuerState(
+          errMessage: error.toString(),
+        ),
+      );
+    }
   }
 }

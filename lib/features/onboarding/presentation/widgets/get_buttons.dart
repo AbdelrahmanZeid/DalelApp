@@ -30,7 +30,7 @@ class GetButtons extends StatelessWidget {
                 height: 16,
               ),
               GestureDetector(
-                onTap: navigationWithReplacment(context, '/sign_in'),
+                onTap: navigation(context, '/sign_in'),
                 child: Text(
                   AppStrings.loginNow,
                   style: AppTextStyle.onBoardingSubTitleStyle().copyWith(

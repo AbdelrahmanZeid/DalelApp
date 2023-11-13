@@ -1,6 +1,7 @@
- import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
- import 'package:go_router/go_router.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 navigation(context, String path) {
   GoRouter.of(context).push(path);
@@ -26,13 +27,12 @@ void checkUserState() {
   );
 }
 
-// void showToast({required String message}) {
-//   Fluttertoast.showToast(
-//       msg: message,
-//       toastLength: Toast.LENGTH_SHORT,
-//       gravity: ToastGravity.CENTER,
-//       timeInSecForIosWeb: 1,
-//       backgroundColor: AppColor.primaryColor,
-//       textColor: AppColor.black,
-//       fontSize: 14.0);
-// }
+void showSBar({required String message,required context}) {
+ 
+  SnackBar sBar = SnackBar(
+    content: Text(message),
+  );
+  ScaffoldMessenger.of(context).showSnackBar(
+    sBar,
+  );
+}

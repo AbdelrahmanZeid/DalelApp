@@ -9,7 +9,7 @@ class ForgetPasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => navigation(context, "/fogetPassword"),
+      onTap: () => navigation(context, "/forgetPassword"),
       child: const Align(
         alignment: Alignment.centerRight,
         child: Text(

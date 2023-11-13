@@ -13,6 +13,11 @@ abstract class AppTextStyle {
         fontWeight: FontWeight.w400,
         color: AppColor.skipColor,
       );
+  static TextStyle forgetPasswordStyle() => const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: AppColor.skipColor,
+      );
   static TextStyle onBoardingTitleStyle() => const TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w500,
