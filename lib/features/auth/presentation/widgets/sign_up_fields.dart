@@ -122,8 +122,8 @@ class _SignUpFieldsState extends State<SignUpFields> {
       },
       listener: (BuildContext context, AuthStates state) {
         if (state is SignUpSuccessState) {
-          showSBar(message: 'Account created successfuly', context: context);
-          navigationWithReplacment(context, "/home");
+          showSBar(message: 'Successfuly check your email to verify your account', context: context);
+          navigationWithReplacment(context, "/sign_in");
         } else if (state is SignUpFailuerState) {
           showSBar(
             message: state.toString(),

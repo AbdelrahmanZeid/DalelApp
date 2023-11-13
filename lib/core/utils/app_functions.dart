@@ -30,7 +30,7 @@ void checkUserState() {
 void showSBar({required String message,required context}) {
  
   SnackBar sBar = SnackBar(
-    content: Text(message),
+    content: Center(child: Text(message),),
   );
   ScaffoldMessenger.of(context).showSnackBar(
     sBar,

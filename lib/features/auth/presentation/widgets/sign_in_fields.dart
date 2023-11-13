@@ -7,6 +7,7 @@ import 'package:dalel/features/auth/presentation/widgets/dont_have_account.dart'
 import 'package:dalel/features/auth/presentation/widgets/forget_password_widget.dart';
 import 'package:dalel/features/auth/view_model/cubits/auth_cubit.dart';
 import 'package:dalel/features/auth/view_model/cubits/auth_states.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -69,8 +70,10 @@ class _SignInFieldsState extends State<SignInFields> {
                   height: 88,
                 ),
                 state is SignInLoadigState
-                    ? const CircularProgressIndicator(
-                        color: AppColor.primaryColor,
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          color: AppColor.primaryColor,
+                        ),
                       )
                     : CustomButton(
                         text: AppStrings.signIn,
@@ -95,8 +98,10 @@ class _SignInFieldsState extends State<SignInFields> {
       },
       listener: (BuildContext context, AuthStates state) {
         if (state is SignInSuccessState) {
-          showSBar(message: 'Log In successfuly', context: context);
-          navigationWithReplacment(context, "/home");
+          FirebaseAuth.instance.currentUser!.emailVerified
+              ? navigationWithReplacment(context, "/home")
+              : showSBar(
+                  message: 'please verify your account', context: context);
         } else if (state is SignUpFailuerState) {
           showSBar(
             message: state.toString(),

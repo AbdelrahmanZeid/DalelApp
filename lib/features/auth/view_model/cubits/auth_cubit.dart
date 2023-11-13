@@ -12,6 +12,7 @@ class AuthCubit extends Cubit<AuthStates> {
   static AuthCubit get(context) => BlocProvider.of(context);
   final signUpFormKey = GlobalKey<FormState>();
   final signInFormKey = GlobalKey<FormState>();
+  final forgetPasswordFormKey = GlobalKey<FormState>();
 
   String? firstName;
   String? lastName;
@@ -75,6 +76,7 @@ class AuthCubit extends Cubit<AuthStates> {
         email: emailAddress!,
         password: password!,
       );
+      verifyEmail();
       emit(
         SignInSuccessState(),
       );
@@ -95,6 +97,20 @@ class AuthCubit extends Cubit<AuthStates> {
           errMessage: error.toString(),
         ),
       );
+    }
+  }
+
+  verifyEmail() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  }
+
+  resetPaswwordWithLink() async {
+    try {
+      emit(ForgetPasswordLoadigState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
+      emit(ForgetPasswordSuccessState());
+    } catch (e) {
+      emit(ForgetPasswordFailuerState(errMessage: e.toString()));
     }
   }
 }

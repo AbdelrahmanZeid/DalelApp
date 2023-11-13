@@ -7,10 +7,11 @@ class ThemeManager {
         scaffoldBackgroundColor: AppColor.scaffoldBackGroundColor,
         fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
+          backgroundColor: AppColor.scaffoldBackGroundColor,
+          elevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle(
-            // statusBarBrightness: Brightness.light,
-            // statusBarIconBrightness: Brightness.dark,
-            statusBarColor: AppColor.primaryColor,
+            statusBarIconBrightness: Brightness.dark,
+            statusBarColor: AppColor.scaffoldBackGroundColor,
           ),
         ),
       );
