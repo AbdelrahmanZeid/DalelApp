@@ -14,5 +14,9 @@ class ThemeManager {
             statusBarColor: AppColor.scaffoldBackGroundColor,
           ),
         ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: AppColor.primaryColor,
+          elevation: 0,
+        ),
       );
 }
