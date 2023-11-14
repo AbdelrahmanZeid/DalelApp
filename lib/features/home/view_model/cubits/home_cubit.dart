@@ -26,6 +26,7 @@ class HomeCubit extends Cubit<HomeStates> {
 
   final List<BottomNavigationBarItem> bottomNavigationBarItemList = const [
     BottomNavigationBarItem(
+      backgroundColor: AppColor.primaryColor,
       icon: Icon(
         Icons.home,
         color: AppColor.splashTextColor,

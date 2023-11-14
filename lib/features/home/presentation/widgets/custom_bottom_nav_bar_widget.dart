@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomBottomNavBarWidget extends StatelessWidget {
@@ -12,19 +11,8 @@ class CustomBottomNavBarWidget extends StatelessWidget {
   final List<BottomNavigationBarItem> items;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
+    return SizedBox(
       height: 79,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(
-            10,
-          ),
-          topRight: Radius.circular(
-            10,
-          ),
-        ),
-      ),
       child: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTap,
