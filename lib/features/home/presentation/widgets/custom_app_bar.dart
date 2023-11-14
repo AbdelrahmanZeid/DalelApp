@@ -1,18 +1,12 @@
+import 'package:dalel/core/utils/app_assets.dart';
 import 'package:dalel/core/utils/app_color.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar {
-  static IconButton getLeading(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(
-        Icons.drag_handle,
-        color: AppColor.splashTextColor,
-        size: 40,
-      ),
-    );
+  static Widget getLeading(BuildContext context) {
+    return Image.asset(Assets.assetsImagesFrame);
   }
 }
 

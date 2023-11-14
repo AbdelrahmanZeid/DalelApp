@@ -34,7 +34,7 @@ class HomeCubit extends Cubit<HomeStates> {
     ),
     BottomNavigationBarItem(
       icon: Icon(
-        Icons.card_membership,
+        Icons.shopping_cart,
         color: AppColor.splashTextColor,
       ),
       label: "",

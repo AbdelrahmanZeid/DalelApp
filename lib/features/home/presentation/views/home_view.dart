@@ -1,5 +1,8 @@
 import 'package:dalel/core/utils/app_color.dart';
+import 'package:dalel/core/utils/app_strings.dart';
+import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:dalel/features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:dalel/features/home/presentation/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:dalel/features/home/view_model/cubits/home_cubit.dart';
 import 'package:dalel/features/home/view_model/cubits/home_state.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +14,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeStates>(
-      builder: ( context, HomeStates state) {
-            final home = HomeCubit.get(context);
+      builder: (context, HomeStates state) {
+        final home = HomeCubit.get(context);
 
         return Scaffold(
           appBar: AppBar(
@@ -40,44 +43,30 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Text("klm;l"),
-        ),
-      ],
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: CustomTextWidget(
+              text: AppStrings.historicalPeriods,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
-class CustomBottomNavBarWidget extends StatelessWidget {
-  const CustomBottomNavBarWidget(
-      {super.key,
-      required this.currentIndex,
-      required this.onTap,
-      required this.items});
-  final int currentIndex;
-  final Function(int value) onTap;
-  final List<BottomNavigationBarItem> items;
+class CustomTextWidget extends StatelessWidget {
+  const CustomTextWidget({super.key, required this.text});
+  final String text;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 79,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(
-            10,
-          ),
-          topRight: Radius.circular(
-            10,
-          ),
-        ),
-      ),
-      child: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: onTap,
-        items: items,
+    return Text(
+      text,
+      style: AppTextStyle.forgetPasswordStyle().copyWith(
+        color: AppColor.splashTextColor,
       ),
     );
   }
