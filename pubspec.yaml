@@ -85,6 +85,9 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
+    - family: Heebo
+      fonts:
+        - asset: assets/fonts/Heebo-Regular.ttf
 flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/utils/

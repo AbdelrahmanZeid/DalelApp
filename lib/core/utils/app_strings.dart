@@ -32,6 +32,7 @@ abstract class AppStrings {
       aboutAncientEgypt = "Ancient \n Egypt",
       islamicEra = "Islamic \n Era",
       ancientEgyptWars = "Ancient Egypt Wars",
+      lionheart = "Lionheart",
       //!Search Strings
       searchDeepIntoTheHistory = "Search deep into the history",
       recent = "Recent",

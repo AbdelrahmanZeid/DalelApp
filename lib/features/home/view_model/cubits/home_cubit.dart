@@ -19,7 +19,7 @@ class HomeCubit extends Cubit<HomeStates> {
 
   final List<Widget> navBarViews = const [
     HomeViewBody(),
-    CartViewBody(),
+    CardViewBody(),
     SearchViewBody(),
     ProfileViewBody(),
   ];
@@ -34,6 +34,7 @@ class HomeCubit extends Cubit<HomeStates> {
       label: "",
     ),
     BottomNavigationBarItem(
+      backgroundColor: AppColor.primaryColor,
       icon: Icon(
         Icons.shopping_cart,
         color: AppColor.splashTextColor,
@@ -41,6 +42,7 @@ class HomeCubit extends Cubit<HomeStates> {
       label: "",
     ),
     BottomNavigationBarItem(
+      backgroundColor: AppColor.primaryColor,
       icon: Icon(
         Icons.search,
         color: AppColor.splashTextColor,
@@ -48,6 +50,7 @@ class HomeCubit extends Cubit<HomeStates> {
       label: "",
     ),
     BottomNavigationBarItem(
+      backgroundColor: AppColor.primaryColor,
       icon: Icon(
         Icons.person,
         color: AppColor.splashTextColor,

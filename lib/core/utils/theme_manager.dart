@@ -18,5 +18,8 @@ class ThemeManager {
           backgroundColor: AppColor.primaryColor,
           elevation: 0,
         ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: AppColor.primaryColor,
+        ),
       );
 }
