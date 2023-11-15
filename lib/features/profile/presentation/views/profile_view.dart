@@ -1,5 +1,4 @@
-import 'package:dalel/core/utils/app_assets.dart';
-import 'package:dalel/core/utils/app_color.dart';
+ import 'package:dalel/core/utils/app_color.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:dalel/features/profile/presentation/widgets/custom_edit_profile_widget.dart';
@@ -82,7 +81,7 @@ class ProfileViewBody extends StatelessWidget {
                   postIconData: Icons.arrow_forward_ios,
                   text: AppStrings.editProfile,
                 ),
-                Divider(
+             const   Divider(
                   color: AppColor.black,
                   height: 2,
                 ),
@@ -91,7 +90,7 @@ class ProfileViewBody extends StatelessWidget {
                   postIconData: Icons.arrow_forward_ios,
                   text: AppStrings.notification,
                 ),
-                Divider(
+             const   Divider(
                   color: AppColor.black,
                   height: 2,
                 ),
@@ -120,9 +119,9 @@ class ProfileViewBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20,),
+              padding: const EdgeInsets.symmetric(vertical: 30,),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomProfileItem(
                     preIconData: Icons.settings,
@@ -142,14 +141,7 @@ class ProfileViewBody extends StatelessWidget {
                     color: AppColor.black,
                     height: 2,
                   ),
-                ],
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                CustomProfileItem(
+                   CustomProfileItem(
                   preIconData: Icons.privacy_tip,
                   postIconData: Icons.arrow_forward_ios,
                   text: AppStrings.privacyPolicy,
@@ -163,12 +155,15 @@ class ProfileViewBody extends StatelessWidget {
                   postIconData: Icons.arrow_forward_ios,
                   text: AppStrings.logOut,
                   onPressed: () {
+                    
                     FirebaseAuth.instance.signOut();
                   },
                 ),
-              ],
+                ],
+              ),
             ),
           ),
+         
         ],
       ),
     );
