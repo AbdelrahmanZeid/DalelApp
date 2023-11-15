@@ -99,6 +99,7 @@ class _SignUpFieldsState extends State<SignUpFields> {
                             color: AppColor.primaryColor,
                             onPressed: () {
                               if (auth.signUpFormKey.currentState!.validate()) {
+                                
                                 auth.signUpWithEmailAndPassword();
                               }
                             },

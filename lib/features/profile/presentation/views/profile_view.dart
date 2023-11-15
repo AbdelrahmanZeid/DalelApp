@@ -3,6 +3,8 @@ import 'package:dalel/core/utils/app_color.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:dalel/features/profile/presentation/widgets/custom_edit_profile_widget.dart';
+import 'package:dalel/features/profile/presentation/widgets/custom_profile_item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {
@@ -38,10 +40,9 @@ class ProfileViewBody extends StatelessWidget {
               child: Text(
                 AppStrings.profile,
                 style: AppTextStyle.onBoardingTitleStyle().copyWith(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Heboo"
-                ),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Heboo"),
               ),
             ),
           ),
@@ -73,7 +74,7 @@ class ProfileViewBody extends StatelessWidget {
               height: 24,
             ),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Column(
               children: [
                 CustomProfileItem(
@@ -90,20 +91,19 @@ class ProfileViewBody extends StatelessWidget {
                   postIconData: Icons.arrow_forward_ios,
                   text: AppStrings.notification,
                 ),
-                 Divider(
+                Divider(
                   color: AppColor.black,
                   height: 2,
                 ),
               ],
             ),
-            
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 32,
             ),
           ),
-           SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Text(
               AppStrings.general,
               style: AppTextStyle.onBoardingTitleStyle().copyWith(
@@ -113,47 +113,61 @@ class ProfileViewBody extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomProfileItem extends StatelessWidget {
-  const CustomProfileItem(
-      {super.key,
-      required this.preIconData,
-      required this.postIconData,
-      required this.text});
-  final IconData preIconData;
-  final IconData postIconData;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 375,
-      height: 48,
-      child: Row(
-        children: [
-          Icon(
-            preIconData,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(
-            text,
-            style: AppTextStyle.onBoardingTitleStyle().copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: AppColor.splashTextColor,
-              fontFamily: "Heebo"
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 20,
             ),
           ),
-          const Spacer(),
-          Icon(
-            postIconData,
-            size: 18,
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomProfileItem(
+                    preIconData: Icons.settings,
+                    postIconData: Icons.arrow_forward_ios,
+                    text: AppStrings.settings,
+                  ),
+                  const Divider(
+                    color: AppColor.black,
+                    height: 2,
+                  ),
+                  CustomProfileItem(
+                    preIconData: Icons.security,
+                    postIconData: Icons.arrow_forward_ios,
+                    text: AppStrings.security,
+                  ),
+                  const Divider(
+                    color: AppColor.black,
+                    height: 2,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CustomProfileItem(
+                  preIconData: Icons.privacy_tip,
+                  postIconData: Icons.arrow_forward_ios,
+                  text: AppStrings.privacyPolicy,
+                ),
+                const Divider(
+                  color: AppColor.black,
+                  height: 2,
+                ),
+                CustomProfileItem(
+                  preIconData: Icons.logout,
+                  postIconData: Icons.arrow_forward_ios,
+                  text: AppStrings.logOut,
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),

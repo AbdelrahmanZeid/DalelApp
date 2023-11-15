@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel/features/auth/view_model/cubits/auth_states.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,17 @@ class AuthCubit extends Cubit<AuthStates> {
   String? password;
   bool textVisable = true;
   bool isActive = false;
+
+  Future<void> addUser() async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    await users.add({
+      "email": emailAddress!,
+      "firstname": firstName!,
+      "lastname": lastName!,
+    });
+  }
+
   signUpWithEmailAndPassword() async {
     try {
       emit(
@@ -30,6 +42,7 @@ class AuthCubit extends Cubit<AuthStates> {
         email: emailAddress!,
         password: password!,
       );
+      await addUser();
       emit(
         SignUpSuccessState(),
       );
