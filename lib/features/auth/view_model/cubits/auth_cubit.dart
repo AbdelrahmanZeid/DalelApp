@@ -42,10 +42,11 @@ class AuthCubit extends Cubit<AuthStates> {
         email: emailAddress!,
         password: password!,
       );
-      await addUser();
+     
       emit(
         SignUpSuccessState(),
       );
+      
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(
@@ -89,7 +90,8 @@ class AuthCubit extends Cubit<AuthStates> {
         email: emailAddress!,
         password: password!,
       );
-      verifyEmail();
+  //    await addUser();
+   await  verifyEmail();
       emit(
         SignInSuccessState(),
       );

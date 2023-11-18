@@ -27,12 +27,69 @@ void checkUserState() {
   );
 }
 
-void showSBar({required String message,required context}) {
- 
+void showSBar({required String message, required context}) {
   SnackBar sBar = SnackBar(
-    content: Center(child: Text(message),),
+    content: Center(
+      child: Text(message),
+    ),
   );
   ScaffoldMessenger.of(context).showSnackBar(
     sBar,
+  );
+}
+
+showAlertDiolog({
+  required context,
+ 
+  required String title,
+}) {
+  final alert = AlertDialog(
+    title: Text(
+      title,
+    ),
+    content: SizedBox(
+      height: 100,
+      child: Column(
+        children: [
+       const   Text("Are you sure ?"),
+      const    SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                },
+                child:const Text(
+                  "Yes",
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
+                child:const Text(
+                  "Cancel",
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+  showDialog(
+    context: context,
+    builder: (context) {
+      return alert;
+    },
   );
 }

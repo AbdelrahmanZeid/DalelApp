@@ -35,11 +35,12 @@ class WelcomeBanner extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               SvgPicture.asset(
-                Assets.assetsImagesVector_2,
-              ),
-              SvgPicture.asset(
                 Assets.assetsImagesVector,
               ),
+              SvgPicture.asset(
+                Assets.assetsImagesVector_2,
+              ),
+              
             ],
           ),
         ],

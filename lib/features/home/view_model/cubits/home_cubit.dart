@@ -2,7 +2,7 @@ import 'package:dalel/core/utils/app_color.dart';
 import 'package:dalel/features/cart/presentation/views/cart_view.dart';
 import 'package:dalel/features/home/presentation/views/home_view.dart';
 import 'package:dalel/features/home/view_model/cubits/home_state.dart';
-import 'package:dalel/features/profile/presentation/views/profile_view.dart';
+ import 'package:dalel/features/profile/presentation/widgets/profile_view_body.dart';
 import 'package:dalel/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

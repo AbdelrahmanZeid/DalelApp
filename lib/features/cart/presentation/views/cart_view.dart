@@ -3,6 +3,7 @@ import 'package:dalel/core/utils/app_color.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_widget.dart';
+import 'package:dalel/features/cart/presentation/widgets/cart_view_body.dart';
 import 'package:dalel/features/home/presentation/widgets/custom_topic_card.dart';
 import 'package:flutter/material.dart';
 
@@ -11,132 +12,18 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CardViewBody(),
-    );
-  }
-}
-
-class CardViewBody extends StatelessWidget {
-  const CardViewBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: CustomScrollView(
-        slivers: [
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 30,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Center(
-              child: Text(
-                AppStrings.bazar,
-                style: AppTextStyle.onBoardingTitleStyle().copyWith(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomTextWidget(
-              text: AppStrings.historicalPeriods,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 16,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomTopicCard(),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 32,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomTextWidget(
-              text: AppStrings.historicalCharacters,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 16,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomHistorivalItem(),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 32,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomTextWidget(
-              text: AppStrings.historicalSouvenirs,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 16,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomHistorivalItem(),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 16,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CustomFloationActionButton(),
-          ),
-        ],
+    return const SafeArea(
+      child: Scaffold(
+        body: CardViewBody(),
       ),
     );
   }
 }
 
-class CustomFloationActionButton extends StatelessWidget {
-  const CustomFloationActionButton({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          width: 67,
-          height: 67,
-          decoration: BoxDecoration(
-            color: AppColor.primaryColor,
-            borderRadius: BorderRadius.circular(
-              360,
-            ),
-          ),
-          child: const Center(
-            child: Icon(
-              Icons.shopping_cart,
-              size: 30,
-              color: AppColor.white,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
 
-class CustomHistorivalItem extends StatelessWidget {
-  const CustomHistorivalItem({
+class CustomHistoricalItem extends StatelessWidget {
+  const CustomHistoricalItem({
     super.key,
   });
 

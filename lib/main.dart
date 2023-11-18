@@ -15,7 +15,7 @@ main() async {
   await getIt<CascheHelper>().init();
 
   
- // checkUserState();
+// checkUserState();
   runApp(
     const Dalel(),
   );
